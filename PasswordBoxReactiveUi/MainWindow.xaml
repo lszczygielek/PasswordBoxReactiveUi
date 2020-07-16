@@ -1,0 +1,24 @@
+﻿<reactiveUi:ReactiveWindow 
+        x:Class="PasswordBoxReactiveUi.MainWindow"
+        x:TypeArguments="local:MainWindowViewModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:reactiveUi="http://reactiveui.net"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasswordBoxReactiveUi"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <PasswordBox Name="PasswordBox"
+                     local:PasswordHelper.Attach="True"
+                     local:PasswordHelper.Password="{Binding Password, Mode=TwoWay}"/>
+        <Button Name="Button"
+                Grid.Row="1"
+                Content="Show"/>
+    </Grid>
+</reactiveUi:ReactiveWindow>
